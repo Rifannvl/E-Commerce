@@ -22,7 +22,7 @@ export default function App() {
         <Route path="/categories/:category" element={<CategoriesProducts />} />
         <Route path="/checkout" element={<CheckoutPages />} />
         <Route path="/dashboard" element={<DashboardProducts />} />
-        <Route path="/dashboard/login" element={<LoginPages />} />
+        <Route path="/login" element={<LoginPages />} />
         <Route path="/dashboard/products/edit/:id" element={<EditProduct />} />
         <Route path="/dashboard/products/create" element={<CreateProduct />} />
       </Routes>
