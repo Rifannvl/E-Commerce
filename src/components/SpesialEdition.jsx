@@ -1,7 +1,9 @@
 import React from "react";
 import CountUp from "./CountUp"; // Make sure to import the CountUp component
+import Aos from "aos";
 
 export default function SpesialEdition() {
+  Aos.init();
   return (
     <div className="container ">
       {/* <section className="rounded-xl 2xl:py-24 2xl:bg-white container mx-auto my-10 ">
