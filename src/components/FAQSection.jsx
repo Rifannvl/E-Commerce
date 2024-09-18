@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 
 const FAQItem = ({ question, answer, isOpen, onClick }) => (
-  <div className="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300">
+  <div className="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-lg transition-shadow duration-300 hover:shadow-xl">
     <button
       type="button"
-      className="flex items-center justify-between w-full px-6 py-5 text-left bg-gray-100 hover:bg-gray-200"
+      className="flex items-center justify-between w-full px-6 py-5 text-left bg-gray-50 hover:bg-gray-100"
       onClick={onClick}
     >
-      <span className="text-lg font-medium text-gray-900">{question}</span>
+      <span className="text-lg font-semibold text-gray-800">{question}</span>
       <svg
-        className={`w-6 h-6 text-gray-500 transition-transform duration-300 ${
+        className={`w-6 h-6 text-gray-600 transition-transform duration-300 ${
           isOpen ? "rotate-180" : "rotate-0"
         }`}
         xmlns="http://www.w3.org/2000/svg"
@@ -26,13 +26,12 @@ const FAQItem = ({ question, answer, isOpen, onClick }) => (
       </svg>
     </button>
     {isOpen && (
-      <div className="px-6 py-5 bg-gray-50">
+      <div className="px-6 py-5 bg-gray-100">
         <p className="text-base text-gray-700">
           {answer}{" "}
           <a
             href="#"
-            title=""
-            className="text-blue-600 hover:text-blue-700 transition-colors duration-200"
+            className="text-blue-600 hover:text-blue-700 transition-colors duration-200 font-medium"
           >
             Learn more
           </a>
@@ -50,17 +49,17 @@ const FAQSection = () => {
   };
 
   return (
-    <section className="py-12 bg-gray-100 sm:py-16 lg:py-24">
+    <section className="py-12 bg-gray-50 sm:py-16 lg:py-24">
       <div className="px-4 mx-auto sm:px-6 lg:px-8 max-w-6xl">
         <div className="text-center">
-          <h2 className="text-3xl font-bold leading-tight text-gray-900 sm:text-4xl lg:text-5xl">
+          <h2 className="text-4xl font-bold leading-tight text-gray-900 sm:text-5xl lg:text-6xl">
             Frequently Asked Questions
           </h2>
-          <p className="mt-4 text-base text-gray-600 max-w-xl mx-auto">
+          <p className="mt-4 text-lg text-gray-600 max-w-xl mx-auto">
             Find answers to the most common questions we receive.
           </p>
         </div>
-        <div className="mt-8 space-y-4">
+        <div className="mt-8 space-y-6">
           <FAQItem
             question="How to create an account?"
             answer="Creating an account is simple. Just follow the instructions on the registration page and you'll be set up in no time."
@@ -68,7 +67,7 @@ const FAQSection = () => {
             onClick={() => toggleFAQ(0)}
           />
           <FAQItem
-            question="How can I make payment using Paypal?"
+            question="How can I make payment using PayPal?"
             answer="You can make payments using PayPal by selecting PayPal as your payment option at checkout."
             isOpen={openIndex === 1}
             onClick={() => toggleFAQ(1)}
@@ -90,7 +89,6 @@ const FAQSection = () => {
           Didn’t find the answer you are looking for?{" "}
           <a
             href="#"
-            title=""
             className="font-medium text-blue-600 hover:text-blue-700 transition-colors duration-200"
           >
             Contact our support
