@@ -10,16 +10,11 @@ export default function CheckoutPage() {
   const [address, setAddress] = useState("");
   const [paymentMethod, setPaymentMethod] = useState("creditCard");
 
-  // Define fixed shipping cost
-  const shippingCost = 5.0; // Adjust as needed
-
-  // Calculate sub-total
+  const shippingCost = 5.0; // Biaya pengiriman tetap
   const subTotal = cart.reduce(
     (total, item) => total + item.price * item.quantity,
     0
   );
-
-  // Calculate grand total
   const grandTotal = subTotal + shippingCost;
 
   const navigate = useNavigate();
@@ -34,29 +29,35 @@ export default function CheckoutPage() {
       cancelButtonText: "Batal",
     }).then((result) => {
       if (result.isConfirmed) {
-        // If user confirms, proceed to send the WhatsApp message
         handlePesan();
       }
     });
   };
 
   const handleBack = () => {
-    navigate(-1); // Navigate back to the previous page
+    navigate(-1);
   };
 
   const handlePesan = () => {
-    // Redirect to WhatsApp with the formatted message
+    if (cart.length === 0) {
+      alert("Keranjang Anda kosong. Silakan tambahkan item terlebih dahulu.");
+      return;
+    }
+
+    const itemMessages = cart
+      .map((item) => `${item.title} (jumlah: ${item.quantity})`)
+      .join("\n");
+    const message = `Halo kak, nama saya ${name}.\nSaya ingin memesan:\n${itemMessages}\n\nTotal belanja: $${grandTotal.toFixed(
+      2
+    )}\nMetode pembayaran: ${paymentMethod}\nAlamat: ${address}`;
+
     window.location.href = `https://wa.me/+6282290525240?text=${encodeURIComponent(
-      `Halo kak, nama saya ${name}. Saya ingin memesan ${cart
-        .map((item) => item.title)
-        .join(", ")} dengan total belanja $${grandTotal.toFixed(
-        2
-      )} dengan metode pembayaran ${paymentMethod} dan alamat ${address}`
+      message
     )}`;
   };
 
   return (
-    <div className="bg-gray-100 min-h-screen flex flex-col">
+    <div className="bg-gradient-to-br from-gray-800 via-gray-900 to-black min-h-screen flex flex-col">
       <header className="bg-white shadow-md p-4">
         <button
           onClick={handleBack}
@@ -79,20 +80,23 @@ export default function CheckoutPage() {
       </header>
 
       <main className="flex-grow p-6 md:p-12 max-w-7xl mx-auto">
-        <h1 className="text-3xl font-bold text-gray-800 mb-8">Checkout</h1>
+        <h1 className="text-3xl font-bold text-white mb-8">Checkout</h1>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Order Summary */}
-          <div className="bg-white p-6 border rounded-lg shadow-lg">
+          <div className="bg-white p-6 border border-gray-300 rounded-lg shadow-lg transition-transform transform hover:scale-105">
             <h2 className="text-2xl font-semibold text-gray-800 mb-4">
               Pesanan
             </h2>
             <div className="space-y-4">
               {cart.length === 0 ? (
-                <p className="text-gray-600">Keranjang anda kosong.</p>
+                <p className="text-gray-600">Keranjang Anda kosong.</p>
               ) : (
                 cart.map((item) => (
-                  <div key={item.id} className="flex justify-between mb-4">
+                  <div
+                    key={item.id}
+                    className="flex justify-between mb-4 border-b border-gray-200 pb-2"
+                  >
                     <div>
                       <h3 className="text-lg font-semibold text-gray-800">
                         {item.title}
@@ -125,7 +129,7 @@ export default function CheckoutPage() {
           </div>
 
           {/* Shipping Information */}
-          <div className="bg-white p-6 border rounded-lg shadow-lg">
+          <div className="bg-white p-6 border border-gray-300 rounded-lg shadow-lg transition-transform transform hover:scale-105">
             <h2 className="text-2xl font-semibold text-gray-800 mb-4">
               Informasi Pengiriman
             </h2>
