@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Header from "../components/Header";
 import { Link } from "react-router-dom";
+import ProductSkeleton from "../components/ProductSkeleton"; // Import Skeleton
 
 export default function ProductsList() {
   const [products, setProducts] = useState([]); // Daftar produk
@@ -35,7 +36,15 @@ export default function ProductsList() {
   });
 
   if (loading) {
-    return <p className="text-center py-6 text-white">Loading...</p>;
+    return (
+      <div className="container mx-auto p-6">
+        <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 h-screen">
+          {Array.from({ length: 8 }).map((_, index) => (
+            <ProductSkeleton key={index} />
+          ))}
+        </ul>
+      </div>
+    );
   }
 
   const handleBack = () => {
@@ -130,26 +139,26 @@ export default function ProductsList() {
             filteredProducts.map((product) => (
               <li
                 key={product.id}
-                className="bg-gray-800 text-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:scale-105"
+                className="bg-gray-800 text-white rounded-lg shadow-lg overflow-hidden flex flex-col"
               >
                 <img
                   src={product.image}
                   alt={product.title}
                   className="w-full h-48 object-cover"
                 />
-                <div className="p-4">
+                <div className="p-4 flex-grow">
                   <h3 className="text-xl font-semibold mb-2">
                     {product.title}
                   </h3>
                   <p className="text-sm mb-2">{product.category}</p>
                   <p className="text-lg font-bold mb-4">$ {product.price}</p>
-                  <Link
-                    to={`/products/${product.id}`}
-                    className="block text-center bg-yellow-500 text-gray-900 py-2 rounded-lg hover:bg-yellow-600 transition-colors duration-300"
-                  >
-                    View
-                  </Link>
                 </div>
+                <Link
+                  to={`/products/${product.id}`}
+                  className="block text-center bg-yellow-500 text-gray-900 py-2 rounded-lg hover:bg-yellow-600 transition-colors duration-300"
+                >
+                  View
+                </Link>
               </li>
             ))
           ) : (
