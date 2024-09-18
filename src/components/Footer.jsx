@@ -17,12 +17,6 @@ export default function Footer() {
           <Link to="/" className="text-white hover:text-gray-400 mx-2">
             Home
           </Link>
-          <Link to="/about" className="text-white hover:text-gray-400 mx-2">
-            About Us
-          </Link>
-          <Link to="/contact" className="text-white hover:text-gray-400 mx-2">
-            Contact
-          </Link>
         </nav>
 
         <div className="flex space-x-4">
