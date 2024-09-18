@@ -3,8 +3,10 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import NavbarDashboard from "./NavbarDashboard";
+import Aos from "aos";
 
 const DashboardProducts = () => {
+  Aos.init();
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
@@ -25,7 +27,7 @@ const DashboardProducts = () => {
         }
       } else {
         // Arahkan ke halaman login jika token tidak ditemukan
-        navigate("/login");
+        navigate("dashboard/login");
       }
     };
 
