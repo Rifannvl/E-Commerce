@@ -103,14 +103,15 @@ export default function CategoriesProducts() {
                 {/* Link untuk melihat detail produk */}
                 <Link
                   to={`/products/${product.id}`}
-                  className="border p-2 rounded bg-yellow-400 mt-2 w-full text-center"
+                  className="bg-blue-500 hover:bg-blue-400 transition duration-200 ease-in-out border rounded-lg shadow-md p-3 text-center font-semibold text-white mt-2 w-full transform hover:scale-105"
                 >
                   View
                 </Link>
+
                 {/* Tombol untuk menambahkan produk ke keranjang */}
                 <button
                   onClick={() => handleAddToCart(product)}
-                  className="bg-green-500 text-white p-2 rounded mt-2 w-full"
+                  className="bg-teal-600 hover:bg-teal-500 transition duration-200 ease-in-out text-white p-3 rounded-lg shadow-md mt-2 w-full font-semibold transform hover:scale-105"
                 >
                   Add to Cart
                 </button>
