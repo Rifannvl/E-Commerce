@@ -26,6 +26,7 @@ export default function CartProducts() {
       showCancelButton: true,
       confirmButtonText: "Ya, lanjutkan",
       cancelButtonText: "Batal",
+      confirmButtonColor: "#facc15",
     }).then((result) => {
       if (result.isConfirmed) {
         // Jika pengguna mengkonfirmasi, navigasi ke halaman checkout
