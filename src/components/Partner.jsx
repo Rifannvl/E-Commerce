@@ -18,7 +18,6 @@ export default function Partner() {
               <svg
                 className="object-contain w-full mx-auto h-14"
                 id="logo-77"
-                width=""
                 height="40"
                 viewBox="0 0 105 40"
                 fill="none"
@@ -131,7 +130,6 @@ export default function Partner() {
               <svg
                 className="object-contain w-full mx-auto h-14"
                 id="logo-77"
-                width=""
                 height="40"
                 viewBox="0 0 105 40"
                 fill="none"
