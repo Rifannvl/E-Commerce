@@ -79,7 +79,7 @@ export default function CategoriesProducts() {
 
       {/* Daftar Produk */}
       <div
-        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
+        className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
         data-aos="fade-left"
         data-aos-offset="300"
         data-aos-easing="ease-in-sine"
@@ -103,7 +103,7 @@ export default function CategoriesProducts() {
                 {/* Link untuk melihat detail produk */}
                 <Link
                   to={`/products/${product.id}`}
-                  className="bg-blue-500 hover:bg-blue-400 transition duration-200 ease-in-out border rounded-lg shadow-md p-3 text-center font-semibold text-white mt-2 w-full transform hover:scale-105"
+                  className="bg-blue-500 hover:bg-blue-400 transition duration-200 ease-in-out border rounded-lg shadow-md p-3 text-center sm:text-xs md:text-lg lg:font-semibold text-white mt-2 w-full transform hover:scale-105"
                 >
                   View
                 </Link>
@@ -111,9 +111,9 @@ export default function CategoriesProducts() {
                 {/* Tombol untuk menambahkan produk ke keranjang */}
                 <button
                   onClick={() => handleAddToCart(product)}
-                  className="bg-teal-600 hover:bg-teal-500 transition duration-200 ease-in-out text-white p-3 rounded-lg shadow-md mt-2 w-full font-semibold transform hover:scale-105"
+                  className="bg-teal-600 hover:bg-teal-500 transition duration-200 ease-in-out text-white p-3 rounded-lg shadow-md mt-2 w-full sm:text-xs md:text-lg lg:font-semibold transform hover:scale-105"
                 >
-                  Add to Cart
+                  Cart
                 </button>
               </div>
             </div>
