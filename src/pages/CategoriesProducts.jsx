@@ -43,8 +43,8 @@ export default function CategoriesProducts() {
 
     Swal.fire({
       icon: "success",
-      title: `${product.title}`,
-      text: "Product berhasil di tambahkan ke keranjang",
+      title: "Product successfully added to cart",
+      text: `${product.title}`,
       confirmButtonText: "OK",
       backdrop: true,
       allowOutsideClick: true,
