@@ -150,7 +150,7 @@ export default function ProductsList() {
                   <h3 className="text-xs md:text-lg lg:text-xl font-semibold mb-2">
                     {product.title}
                   </h3>
-                  <p className="text-sm mb-2">{product.category}</p>
+                  <p className="text-xs lg:text-sm mb-2 ">{product.category}</p>
                   <p className="text-xs md:text-sm lg:text-lg font-bold mb-4">
                     $ {product.price}
                   </p>

@@ -42,7 +42,7 @@ export default function FavoriteProduct() {
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Purus faucibus
         massa dignissim tempus.
       </p>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
         {products.map((product) => (
           <div
             key={product.id}
@@ -58,8 +58,12 @@ export default function FavoriteProduct() {
             />
 
             <div className="grid grid-cols-2 gap-4">
-              <h2 className="text-md font-bold mb-2">{product.category}</h2>
-              <p className=" text-lg font-bold mb-4">$ {product.price}</p>
+              <h2 className="text-xs md:text-sm lg:text-md font-bold mb-2 text-start w-full">
+                {product.category}
+              </h2>
+              <p className=" text-xs md:text-sm lg:text-md font-bold mb-4 text-center w-full ">
+                $ {product.price}
+              </p>
             </div>
           </div>
         ))}

@@ -43,8 +43,8 @@ export default function CategoriesProducts() {
 
     Swal.fire({
       icon: "success",
-      title: "Product successfully added to cart",
       text: `${product.title}`,
+      title: "Product berhasil di tambahkan ke keranjang",
       confirmButtonText: "OK",
       backdrop: true,
       allowOutsideClick: true,
@@ -99,11 +99,11 @@ export default function CategoriesProducts() {
             <p className="text-sm mb-2">{product.category}</p>
             <div className="flex items-center mb-2"></div>
             <div className="flex justify-between gap-4">
-              <div className="grid grid-cols-2 gap-4 my-auto">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-1 lg:gap-4 w-full lg:my-auto">
                 {/* Link untuk melihat detail produk */}
                 <Link
                   to={`/products/${product.id}`}
-                  className="bg-blue-500 hover:bg-blue-400 transition duration-200 ease-in-out border rounded-lg shadow-md p-3 text-center sm:text-xs md:text-lg lg:font-semibold text-white mt-2 w-full transform hover:scale-105"
+                  className="bg-blue-500 hover:bg-blue-400 transition duration-200 ease-in-out border rounded-lg shadow-md py-2 lg:py-3 text-center sm:text-xs md:text-lg lg:font-semibold text-white  w-full transform hover:scale-105"
                 >
                   View
                 </Link>
@@ -111,9 +111,9 @@ export default function CategoriesProducts() {
                 {/* Tombol untuk menambahkan produk ke keranjang */}
                 <button
                   onClick={() => handleAddToCart(product)}
-                  className="bg-teal-600 hover:bg-teal-500 transition duration-200 ease-in-out text-white p-3 rounded-lg shadow-md mt-2 w-full sm:text-xs md:text-lg lg:font-semibold transform hover:scale-105"
+                  className="bg-teal-600 hover:bg-teal-500 transition duration-200 ease-in-out text-white py-2 lg:py-3 rounded-lg shadow-md text-center w-full sm:text-xs md:text-lg lg:font-semibold transform hover:scale-105"
                 >
-                  Cart
+                  Add to Cart
                 </button>
               </div>
             </div>
