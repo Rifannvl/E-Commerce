@@ -38,7 +38,7 @@ export default function ProductsList() {
   if (loading) {
     return (
       <div className="container mx-auto p-6">
-        <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 h-screen">
+        <ul className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 h-screen">
           {Array.from({ length: 8 }).map((_, index) => (
             <ProductSkeleton key={index} />
           ))}
