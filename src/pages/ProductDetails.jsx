@@ -1,7 +1,7 @@
 // src/pages/ProductDetails.js
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import Header from "../components/Header";
+import BaseLayout from "../layout/BaseLayout";
 import { useCart } from "../contexts/CartContext"; // Import useCart untuk mengakses fungsi addToCart
 import Swal from "sweetalert2"; // Import SweetAlert2 untuk menampilkan notifikasi
 
@@ -80,82 +80,83 @@ export default function ProductDetails() {
   };
 
   return (
-    <div className="bg-gray-900 min-h-screen flex flex-col">
-      <Header />
-      <button
-        onClick={handleBack}
-        className="fixed mt-4 top-20 left-4 border p-3 rounded-full bg-gray-800 text-white flex items-center hover:bg-gray-700 transition-colors duration-300"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-5 w-5"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
+    <BaseLayout>
+      <div className="bg-gray-900 min-h-screen flex flex-col">
+        <button
+          onClick={handleBack}
+          className="fixed mt-4 top-20 left-4 border p-3 rounded-full bg-gray-800 text-white flex items-center hover:bg-gray-700 transition-colors duration-300"
         >
-          <path d="M15 18l-6-6 6-6" />
-        </svg>
-        <span className="ml-2">Back</span>
-      </button>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-5 w-5"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path d="M15 18l-6-6 6-6" />
+          </svg>
+          <span className="ml-2">Back</span>
+        </button>
 
-      <div className="flex-grow p-6 md:p-12 lg:p-16 mt-28">
-        <div className="container mx-auto bg-gray-800 rounded-lg shadow-lg p-6 lg:flex lg:items-center lg:space-x-12">
-          <div className="bg-gray-900 p-4 rounded-lg flex justify-center items-center overflow-hidden">
-            <img
-              src={product.image}
-              alt={product.title}
-              className="object-cover h-96 w-full lg:w-96 lg:h-auto rounded-lg shadow-lg"
-            />
-          </div>
-          <div className="text-white mt-6 lg:mt-0 lg:flex-grow lg:flex lg:flex-col lg:justify-center">
-            <h1 className="text-3xl font-bold mb-4">{product.title}</h1>
-            <p className="text-lg mb-4">{product.category}</p>
-            <p className="text-xl font-bold mb-6">$ {product.price}</p>
-
-            <div className="flex items-center mb-6">
-              <button
-                onClick={handleDecrease}
-                className="bg-gray-700 text-white p-2 rounded-full shadow-lg hover:bg-gray-600 transition-colors duration-300"
-                aria-label="Decrease quantity"
-              >
-                -
-              </button>
-              <span className="mx-4 text-xl">{quantity}</span>
-              <button
-                onClick={handleIncrease}
-                className="bg-gray-700 text-white p-2 rounded-full shadow-lg hover:bg-gray-600 transition-colors duration-300"
-                aria-label="Increase quantity"
-              >
-                +
-              </button>
+        <div className="flex-grow p-6 md:p-12 lg:p-16 mt-28">
+          <div className="container mx-auto bg-gray-800 rounded-lg shadow-lg p-6 lg:flex lg:items-center lg:space-x-12">
+            <div className="bg-gray-900 p-4 rounded-lg flex justify-center items-center overflow-hidden">
+              <img
+                src={product.image}
+                alt={product.title}
+                className="object-cover h-96 w-full lg:w-96 lg:h-auto rounded-lg shadow-lg"
+              />
             </div>
+            <div className="text-white mt-6 lg:mt-0 lg:flex-grow lg:flex lg:flex-col lg:justify-center">
+              <h1 className="text-3xl font-bold mb-4">{product.title}</h1>
+              <p className="text-lg mb-4">{product.category}</p>
+              <p className="text-xl font-bold mb-6">$ {product.price}</p>
 
-            <div className="mb-6">
-              <p className="text-xl font-bold">
-                Total Price: $ {total.toFixed(2)}
-              </p>
-            </div>
+              <div className="flex items-center mb-6">
+                <button
+                  onClick={handleDecrease}
+                  className="bg-gray-700 text-white p-2 rounded-full shadow-lg hover:bg-gray-600 transition-colors duration-300"
+                  aria-label="Decrease quantity"
+                >
+                  -
+                </button>
+                <span className="mx-4 text-xl">{quantity}</span>
+                <button
+                  onClick={handleIncrease}
+                  className="bg-gray-700 text-white p-2 rounded-full shadow-lg hover:bg-gray-600 transition-colors duration-300"
+                  aria-label="Increase quantity"
+                >
+                  +
+                </button>
+              </div>
 
-            <div className="flex space-x-4">
-              <button
-                onClick={handleAddToCart}
-                className="bg-yellow-500 text-gray-900 py-2 px-6 rounded-lg shadow-lg hover:bg-yellow-600 transition-colors duration-300"
-              >
-                Add to Cart
-              </button>
-              <button
-                onClick={handleBuyNow}
-                className="bg-yellow-500 text-gray-900 py-2 px-6 rounded-lg shadow-lg hover:bg-yellow-600 transition-colors duration-300"
-              >
-                Buy Now
-              </button>
+              <div className="mb-6">
+                <p className="text-xl font-bold">
+                  Total Price: $ {total.toFixed(2)}
+                </p>
+              </div>
+
+              <div className="flex space-x-4">
+                <button
+                  onClick={handleAddToCart}
+                  className="bg-yellow-500 text-gray-900 py-2 px-6 rounded-lg shadow-lg hover:bg-yellow-600 transition-colors duration-300"
+                >
+                  Add to Cart
+                </button>
+                <button
+                  onClick={handleBuyNow}
+                  className="bg-yellow-500 text-gray-900 py-2 px-6 rounded-lg shadow-lg hover:bg-yellow-600 transition-colors duration-300"
+                >
+                  Buy Now
+                </button>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </BaseLayout>
   );
 }

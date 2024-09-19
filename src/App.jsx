@@ -26,7 +26,6 @@ export default function App() {
         <Route path="/dashboard/products/edit/:id" element={<EditProduct />} />
         <Route path="/dashboard/products/create" element={<CreateProduct />} />
       </Routes>
-      <Footer />
     </BrowserRouter>
   );
 }
