@@ -4,8 +4,8 @@ import { FaFacebook, FaTwitter, FaInstagram } from "react-icons/fa";
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-800 text-white py-6 mt-auto">
-      <div className="container mx-auto flex flex-col md:flex-row justify-between items-center px-4">
+    <footer className="bg-gray-800 text-white py-6 mt-auto mx-auto">
+      <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-4 px-4">
         <div className="mb-4 md:mb-0">
           <h2 className="text-2xl font-bold mb-2">Company Name</h2>
           <p className="text-sm">
@@ -13,13 +13,16 @@ export default function Footer() {
           </p>
         </div>
 
-        <nav className="flex flex-col md:flex-row mb-4 md:mb-0">
-          <Link to="/" className="text-white hover:text-gray-400 mx-2">
+        <nav className="flex flex-col md:flex-row md:justify-center mb-4 md:mb-0 items-center">
+          <Link
+            to="/"
+            className="text-white font-bold  hover:text-gray-400 mx-2"
+          >
             Home
           </Link>
         </nav>
 
-        <div className="flex space-x-4">
+        <div className="flex justify-end space-x-4 items-center">
           <a
             href="https://facebook.com"
             target="_blank"

@@ -19,6 +19,7 @@ const DashboardProducts = () => {
         try {
           // Mengambil produk hanya jika token tersedia
           const response = await axios.get("https://fakestoreapi.com/products");
+          console.log({ response });
           setProducts(response.data);
         } catch (error) {
           console.error("Terjadi kesalahan saat mengambil produk:", error);
