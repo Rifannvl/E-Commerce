@@ -20,7 +20,7 @@ export default function Header() {
       <div className="grid grid-cols-3 items-center gap-4 ">
         {/* Logo */}
         <Link to="/">
-          <h1 className="lg:text-3xl text-md font-bold ">E-Commerce</h1>
+          <h1 className="lg:text-3xl text-md font-bold  w-full">Rivnl</h1>
         </Link>
 
         <Link
