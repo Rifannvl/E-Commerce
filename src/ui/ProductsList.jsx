@@ -144,14 +144,16 @@ export default function ProductsList() {
                 <img
                   src={product.image}
                   alt={product.title}
-                  className="w-full h-48 object-cover"
+                  className=" w-full h-24 lg:h-48 object-cover"
                 />
                 <div className="p-4 flex-grow">
-                  <h3 className="text-xl font-semibold mb-2">
+                  <h3 className="text-xs md:text-lg lg:text-xl font-semibold mb-2">
                     {product.title}
                   </h3>
                   <p className="text-sm mb-2">{product.category}</p>
-                  <p className="text-lg font-bold mb-4">$ {product.price}</p>
+                  <p className="text-xs md:text-sm lg:text-lg font-bold mb-4">
+                    $ {product.price}
+                  </p>
                 </div>
                 <Link
                   to={`/products/${product.id}`}
