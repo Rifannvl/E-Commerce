@@ -17,7 +17,7 @@ export default function OverView() {
   }, []);
 
   return (
-    <div className=" py-10 ">
+    <div className="container mx-auto mt-10  ">
       <h1 className="text-4xl font-bold mb-6 text-white ms-6">Overview</h1>
       <div className="flex overflow-x-auto space-x-2 scrollbar-hide p-4 glass backdrop-brightness-50">
         {products.map((product) => (
