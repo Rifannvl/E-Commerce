@@ -1,5 +1,5 @@
 import React from "react";
-import Header from "../components/Header";
+
 import CategoriesProducts from "./CategoriesProducts";
 import HeroPages from "./HeroPages";
 import FavoriteProduct from "../components/FavoriteProduct";
