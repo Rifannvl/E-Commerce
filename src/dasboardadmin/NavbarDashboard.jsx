@@ -10,7 +10,7 @@ export default function NavbarDashboard() {
         <Link to="/home">
           <svg
             id="logo-29"
-            width="12rem"
+            width="154"
             viewBox="0 0 154 44"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
