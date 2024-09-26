@@ -3,6 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import BaseLayout from "../layout/BaseLayout";
 import { useCart } from "../contexts/CartContext";
 import Swal from "sweetalert2";
+import Breadcrumbs from "../components/Breadcrumbs";
 
 const SkeletonLoader = () => (
   <div className="bg-gray-800 rounded-lg shadow-lg p-6 animate-pulse">
@@ -84,38 +85,22 @@ export default function ProductDetails() {
     });
   };
 
-  const handleBack = () => {
-    window.history.back();
-  };
+  const breadcrumbItems = [
+    { label: "Home", path: "/" },
+    { label: "Products", path: "/products" }, // Anda dapat menyesuaikan ini sesuai rute yang ada
+    { label: "Product Details", path: `/products/${id}` },
+  ];
 
   return (
     <BaseLayout>
-      <div className="bg-gray-900 min-h-screen flex flex-col">
-        <button
-          onClick={handleBack}
-          className="fixed mt-4 top-20 left-4 border p-3 rounded-full bg-gray-800 text-white flex items-center hover:bg-gray-700 transition-colors duration-300"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-5 w-5"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <path d="M15 18l-6-6 6-6" />
-          </svg>
-          <span className="ml-2">Back</span>
-        </button>
-
-        <div className="flex-grow p-6 md:p-12 lg:p-16 mt-28">
-          <div className="container mx-auto">
+      <div className="bg-gray-900 min-h-screen flex flex-col  ">
+        <Breadcrumbs items={breadcrumbItems} />
+        <div className=" ">
+          <div className="container mx-auto mb-10">
             {loading ? (
               <SkeletonLoader />
             ) : (
-              <div className="bg-gray-800 rounded-lg shadow-lg p-6 lg:flex lg:items-center lg:space-x-12">
+              <div className=" bg-gray-800 rounded-lg shadow-lg p-6 lg:flex lg:items-center lg:space-x-12 lg:space-y-0 ">
                 <div className="bg-gray-900 p-4 rounded-lg flex justify-center items-center overflow-hidden">
                   <img
                     src={product.image}
