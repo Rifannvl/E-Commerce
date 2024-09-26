@@ -2,11 +2,19 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import AdminLayout from "../layout/AdminLayout";
 
 const EditProduct = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const [product, setProduct] = useState({ title: "", price: "" });
+  const token = localStorage.getItem("userToken"); // Mengambil token dari localStorage
+
+  useEffect(() => {
+    if (!token) {
+      navigate("/login"); // Arahkan ke halaman login jika tidak ada token
+    }
+  }, [token, navigate]);
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -60,55 +68,59 @@ const EditProduct = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-r from-indigo-100 to-blue-200 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-      <div className="w-full max-w-lg bg-white p-8 rounded-lg shadow-lg border border-gray-200 bg-opacity-90 backdrop-blur-lg">
-        <h1 className="text-3xl font-bold mb-6 text-gray-900">Edit Product</h1>
-        <form onSubmit={handleSubmit} className="space-y-6">
-          <div>
-            <label
-              htmlFor="title"
-              className="block text-sm font-medium text-gray-700 mb-1"
+    <AdminLayout>
+      <div className="min-h-screen bg-gradient-to-r from-indigo-100 to-blue-200 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+        <div className="w-full max-w-lg bg-white p-8 rounded-lg shadow-lg border border-gray-200 bg-opacity-90 backdrop-blur-lg">
+          <h1 className="text-3xl font-bold mb-6 text-gray-900">
+            Edit Product
+          </h1>
+          <form onSubmit={handleSubmit} className="space-y-6">
+            <div>
+              <label
+                htmlFor="title"
+                className="block text-sm font-medium text-gray-700 mb-1"
+              >
+                Title
+              </label>
+              <input
+                type="text"
+                name="title"
+                id="title"
+                value={product.title}
+                onChange={handleChange}
+                required
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300 ease-in-out"
+                placeholder="Enter product title"
+              />
+            </div>
+            <div>
+              <label
+                htmlFor="price"
+                className="block text-sm font-medium text-gray-700 mb-1"
+              >
+                Price
+              </label>
+              <input
+                type="number"
+                name="price"
+                id="price"
+                value={product.price}
+                onChange={handleChange}
+                required
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300 ease-in-out"
+                placeholder="Enter product price"
+              />
+            </div>
+            <button
+              type="submit"
+              className="w-full bg-blue-600 text-white py-2 rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300 ease-in-out"
             >
-              Title
-            </label>
-            <input
-              type="text"
-              name="title"
-              id="title"
-              value={product.title}
-              onChange={handleChange}
-              required
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300 ease-in-out"
-              placeholder="Enter product title"
-            />
-          </div>
-          <div>
-            <label
-              htmlFor="price"
-              className="block text-sm font-medium text-gray-700 mb-1"
-            >
-              Price
-            </label>
-            <input
-              type="number"
-              name="price"
-              id="price"
-              value={product.price}
-              onChange={handleChange}
-              required
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300 ease-in-out"
-              placeholder="Enter product price"
-            />
-          </div>
-          <button
-            type="submit"
-            className="w-full bg-blue-600 text-white py-2 rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300 ease-in-out"
-          >
-            Save Changes
-          </button>
-        </form>
+              Save Changes
+            </button>
+          </form>
+        </div>
       </div>
-    </div>
+    </AdminLayout>
   );
 };
 
