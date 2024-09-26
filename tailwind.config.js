@@ -21,9 +21,18 @@ export default {
         320: "80rem",
         384: "96rem",
       },
-    },
-    container: {
-      center: true,
+
+      container: {
+        center: true,
+        padding: {
+          DEFAULT: "1rem",
+          xs: "1.5rem",
+          sm: "2rem",
+          lg: "3rem",
+          xl: "5rem",
+          "2xl": "6rem",
+        },
+      },
     },
   },
   plugins: [],
