@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import BaseLayout from "../layout/BaseLayout";
 import { Link } from "react-router-dom";
 import ProductSkeleton from "../components/ProductSkeleton"; // Import Skeleton
+import Breadcrumbs from "../components/Breadcrumbs";
 
 export default function ProductsList() {
   const [products, setProducts] = useState([]); // Daftar produk
@@ -51,32 +52,17 @@ export default function ProductsList() {
     window.history.back();
   };
 
+  const breadcrumbItems = [
+    { label: "Home", path: "/" },
+    { label: "Products", path: "/products" }, // Anda dapat menyesuaikan ini sesuai rute yang ada
+  ];
+
   return (
     <BaseLayout>
+      <Breadcrumbs items={breadcrumbItems} />
       <div className="bg-gradient-to-br from-gray-800 via-gray-900 to-black min-h-screen">
-        <div className="pt-28 ">
-          <button
-            onClick={handleBack}
-            className="flex justify-center items-center mx-4 border p-3 rounded-full bg-gray-700 text-white mb-4  hover:bg-gray-600 transition-colors duration-300"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path d="M15 18l-6-6 6-6" />
-            </svg>
-            <span className="ml-2">Back</span>
-          </button>
-        </div>
-
         <div className="container mx-auto p-6 bg-gray-900 rounded-lg shadow-lg ">
-          <h1 className="text-center text-4xl font-bold text-white mb-6">
+          <h1 className="text-center text-xl lg:text-4xl font-bold text-white mb-6">
             Find Your Desired Products
           </h1>
           <form className="mb-6">
@@ -102,12 +88,11 @@ export default function ProductsList() {
                 <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
               </svg>
             </div>
-
-            <div className="flex flex-wrap gap-2 mt-4">
+            <div className="flex flex-wrap gap-2 mt-4 justify-center">
               <button
                 type="button"
                 onClick={() => setSelectedCategory("")}
-                className={`py-2 px-4 rounded-full border transition-colors duration-300 ${
+                className={`py-1 px-2 sm:py-2 sm:px-4 rounded-full border transition-colors duration-300 ${
                   selectedCategory === ""
                     ? "bg-gray-600 text-white"
                     : "bg-gray-800 text-gray-400"
@@ -120,7 +105,7 @@ export default function ProductsList() {
                   key={index}
                   type="button"
                   onClick={() => setSelectedCategory(category)}
-                  className={`py-2 px-4 rounded-full border transition-colors duration-300 ${
+                  className={`py-1 px-2 sm:py-2 sm:px-4 rounded-full border transition-colors duration-300 ${
                     selectedCategory === category
                       ? "bg-gray-600 text-white"
                       : "bg-gray-800 text-gray-400"
