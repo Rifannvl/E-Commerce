@@ -4,10 +4,10 @@ import { FaFacebook, FaTwitter, FaInstagram } from "react-icons/fa";
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-800 text-white py-6 mt-auto mx-auto">
-      <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-4 px-4">
-        <div className="mb-4 md:mb-0">
-          <h2 className="text-2xl font-bold mb-2">Company Name</h2>
+    <footer className="container mx-auto bg-gray-800 text-white py-6 px-4">
+      <div className="flex flex-col md:flex-row justify-between items-center">
+        <div className="mb-4 md:mb-0 text-center md:text-left">
+          <h2 className="text-xl font-bold mb-2">Company Name</h2>
           <p className="text-sm">
             &copy; {new Date().getFullYear()} Company Name. All rights reserved.
           </p>
@@ -16,20 +16,21 @@ export default function Footer() {
         <nav className="flex flex-col md:flex-row md:justify-center mb-4 md:mb-0 items-center">
           <Link
             to="/"
-            className="text-white font-bold  hover:text-gray-400 mx-2"
+            className="text-white font-bold hover:text-gray-400 mx-2"
           >
             Home
           </Link>
+          {/* Tambahkan lebih banyak link sesuai kebutuhan */}
         </nav>
 
-        <div className="flex justify-end space-x-4 items-center">
+        <div className="flex justify-center space-x-4 items-center">
           <a
             href="https://facebook.com"
             target="_blank"
             rel="noopener noreferrer"
             className="text-white hover:text-gray-400"
           >
-            <FaFacebook size={24} />
+            <FaFacebook size={20} />
           </a>
           <a
             href="https://twitter.com"
@@ -37,7 +38,7 @@ export default function Footer() {
             rel="noopener noreferrer"
             className="text-white hover:text-gray-400"
           >
-            <FaTwitter size={24} />
+            <FaTwitter size={20} />
           </a>
           <a
             href="https://instagram.com"
@@ -45,7 +46,7 @@ export default function Footer() {
             rel="noopener noreferrer"
             className="text-white hover:text-gray-400"
           >
-            <FaInstagram size={24} />
+            <FaInstagram size={20} />
           </a>
         </div>
       </div>

@@ -34,7 +34,7 @@ export default function FavoriteProduct() {
   if (error) return <div>{error}</div>;
 
   return (
-    <div className="container mx-auto p-6 mt-10">
+    <div className="container mx-auto  mt-10">
       <h1 className="text-3xl font-bold mb-6 text-center text-white">
         Favorite Products
       </h1>

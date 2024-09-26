@@ -16,7 +16,7 @@ export default function Header() {
 
   const currentPage = location.pathname === "/";
   return (
-    <header className="fixed top-0  w-full z-50 glass backdrop-brightness-50 text-white py-5 px-10 items-center">
+    <header className="fixed top-0  w-full z-50 glass backdrop-brightness-50 text-white container mx-auto py-4 items-center">
       <div className="grid grid-cols-3 items-center gap-4 ">
         {/* Logo */}
         <Link to="/">
@@ -37,8 +37,7 @@ export default function Header() {
           <Link to="/products">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              width="1.5em"
-              height="1.5em"
+              className="h-6 w-6 lg:h-8 lg:w-8"
               viewBox="0 0 1024 1024"
             >
               <path
@@ -52,8 +51,7 @@ export default function Header() {
           <Link to="/cart" className="relative">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              width="1.5em"
-              height="1.5em"
+              className="h-6 w-6 lg:h-8 lg:w-8"
               viewBox="0 0 24 24"
             >
               <path
