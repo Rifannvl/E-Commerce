@@ -4,6 +4,7 @@ import { useCart } from "../contexts/CartContext"; // Import hook untuk mengakse
 import BaseLayout from "../layout/BaseLayout";
 import { useNavigate } from "react-router-dom"; // Import useNavigate untuk navigasi ke halaman lain
 import Swal from "sweetalert2"; // Import SweetAlert2 untuk menampilkan notifikasi
+import Breadcrumbs from "../components/Breadcrumbs";
 
 export default function CartProducts() {
   // Ambil data dan fungsi dari context cart
@@ -44,30 +45,19 @@ export default function CartProducts() {
   // Calculate grand total
   const grandTotal = subTotal + shippingCost;
 
+  const breadcrumbItems = [
+    { label: "Home", path: "/" },
+    { label: "Products", path: "/products" }, // Anda dapat menyesuaikan ini sesuai rute yang ada
+    { label: "Cart", path: "/cart" },
+  ];
+
   return (
     <BaseLayout>
-      <div className="bg-gray-900 min-h-screen flex flex-col">
-        {/* Tombol untuk kembali ke halaman sebelumnya */}
-        <button
-          onClick={handleBack}
-          className="fixed mt-4 top-20 left-4 border p-3 rounded-full bg-gray-800 text-white flex items-center hover:bg-gray-700 transition-colors duration-300"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-5 w-5"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <path d="M15 18l-6-6 6-6" />
-          </svg>
-          <span className="ml-2">Back</span>
-        </button>
-        <div className="flex-grow p-6 md:p-12 lg:p-16 mt-28">
-          <h1 className="text-3xl font-bold text-white mb-6">
+      <div className="bg-gray-900 min-h-screen flex flex-col mb-10">
+        <Breadcrumbs items={breadcrumbItems} />
+
+        <div className="flex-grow container mx-auto">
+          <h1 className="text-lg lg:text-3xl font-bold text-white mb-6">
             Keranjang Belanja Anda
           </h1>
 
@@ -157,24 +147,28 @@ export default function CartProducts() {
                       key={item.id}
                       className="mb-4 bg-gray-800 rounded-lg shadow-lg"
                     >
-                      <div className="flex items-center p-4">
+                      <div className="flex flex-col items-center p-4">
                         <img
                           src={item.image}
                           alt={item.title}
-                          className="w-24 h-24 bg-white object-cover rounded"
+                          className="w-full h-full my-5 lg:w-32 lg:h-32 bg-white object-cover rounded"
                         />
-                        <div className="ml-4 text-white flex-1">
-                          <h2 className="text-xl font-semibold">
+                        <div className="text-start text-white flex-1">
+                          <h2 className="text-sm lg:text-xl font-semibold">
                             {item.title}
                           </h2>
-                          <p>Price: $ {item.price}</p>
-                          <p>Quantity: {item.quantity}</p>
-                          <p>
+                          <p className="text-xs lg:text-xl">
+                            Price: $ {item.price}
+                          </p>
+                          <p className="text-xs lg:text-xl">
+                            Quantity: {item.quantity}
+                          </p>
+                          <p className="text-xs lg:text-xl">
                             Total: $ {(item.price * item.quantity).toFixed(2)}
                           </p>
                           <button
                             onClick={() => removeFromCart(item.id)}
-                            className="bg-yellow-500 text-gray-900 mt-2 py-1 px-4 rounded-full hover:bg-yellow-400 transition-colors duration-300"
+                            className="bg-yellow-500 text-gray-900 mt-4 py-1 px-4 rounded-full hover:bg-yellow-400 transition-colors duration-300"
                           >
                             Remove
                           </button>
