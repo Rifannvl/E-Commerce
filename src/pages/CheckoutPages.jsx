@@ -84,28 +84,30 @@ export default function CheckoutPage() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Order Summary */}
-          <div className="bg-white p-6 border border-gray-300 rounded-lg shadow-lg transition-transform transform hover:scale-105">
-            <h2 className="text-2xl font-semibold text-gray-800 mb-4">
+          <div className="bg-white p-4 md:p-6 border border-gray-300 rounded-lg shadow-lg transition-transform transform hover:scale-105">
+            <h2 className="text-2xl md:text-2xl font-semibold text-gray-800 mb-4">
               Pesanan
             </h2>
             <div className="space-y-4">
               {cart.length === 0 ? (
-                <p className="text-gray-600">Keranjang Anda kosong.</p>
+                <p className="text-gray-600 text-center">
+                  Keranjang Anda kosong.
+                </p>
               ) : (
                 cart.map((item) => (
                   <div
                     key={item.id}
-                    className="flex justify-between mb-4 border-b border-gray-200 pb-2"
+                    className="flex flex-col md:flex-row justify-between mb-4 border-b border-gray-200 pb-2"
                   >
-                    <div>
-                      <h3 className="text-lg font-semibold text-gray-800">
+                    <div className="mb-2 md:mb-0 flex-grow">
+                      <h3 className="text-sm font-semibold text-gray-800">
                         {item.title}
                       </h3>
-                      <p className="text-sm text-gray-600">
+                      <p className="text-xs text-gray-600 ">
                         Quantity: {item.quantity}
                       </p>
                     </div>
-                    <p className="text-lg font-bold text-gray-800">
+                    <p className="text-sm mt-2 md:mt-0 font-bold text-gray-800 ">
                       $ {(item.price * item.quantity).toFixed(2)}
                     </p>
                   </div>
@@ -113,17 +115,17 @@ export default function CheckoutPage() {
               )}
             </div>
             <div className="border-t border-gray-300 mt-4 pt-4">
-              <h3 className="text-xl font-semibold text-gray-800 mb-2">
+              <h3 className="text-xl md:text-xl font-semibold text-gray-800 mb-2">
                 Ringkasan Pesanan
               </h3>
-              <p className="text-lg font-bold text-gray-800">
-                Sub-Total: $ {subTotal.toFixed(2)}
+              <p className="text-sm font-bold text-gray-800">
+                Sub-Total : $ {subTotal.toFixed(2)}
               </p>
-              <p className="text-lg font-bold text-gray-800">
-                Pengiriman: $ {shippingCost.toFixed(2)}
+              <p className="text-sm font-bold text-gray-800">
+                Pengiriman : $ {shippingCost.toFixed(2)}
               </p>
-              <p className="text-xl font-bold text-gray-800">
-                Total Harga: $ {grandTotal.toFixed(2)}
+              <p className="text-md font-bold text-gray-800">
+                Total Harga : $ {grandTotal.toFixed(2)}
               </p>
             </div>
           </div>
