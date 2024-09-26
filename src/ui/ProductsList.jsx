@@ -132,7 +132,7 @@ export default function ProductsList() {
                     className=" w-full h-24 lg:h-48 object-cover"
                   />
                   <div className="p-4 flex-grow">
-                    <h3 className="text-xs md:text-lg lg:text-xl font-semibold mb-2">
+                    <h3 className="text-xs md:text-lg lg:text-xl font-semibold mb-2 line-clamp-2">
                       {product.title}
                     </h3>
                     <p className="text-xs lg:text-sm mb-2 ">
