@@ -10,10 +10,12 @@ import Footer from "./components/Footer";
 import DashboardProducts from "./dasboardadmin/DasboardProducts";
 import EditProduct from "./dasboardadmin/EditProduct";
 import CreateProduct from "./dasboardadmin/CreateProduct";
+import ScrollToTop from "./components/ScrollToTop";
 
 export default function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/products" element={<Products />} />
