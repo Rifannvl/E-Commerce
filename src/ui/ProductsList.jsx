@@ -48,10 +48,6 @@ export default function ProductsList() {
     );
   }
 
-  const handleBack = () => {
-    window.history.back();
-  };
-
   const breadcrumbItems = [
     { label: "Home", path: "/" },
     { label: "Products", path: "/products" }, // Anda dapat menyesuaikan ini sesuai rute yang ada
