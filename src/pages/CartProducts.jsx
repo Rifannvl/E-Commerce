@@ -9,7 +9,6 @@ import Breadcrumbs from "../components/Breadcrumbs";
 export default function CartProducts() {
   // Ambil data dan fungsi dari context cart
   const { cart, getCartTotal, removeFromCart } = useCart();
-  // Inisialisasi useNavigate untuk navigasi halaman
   const navigate = useNavigate();
 
   // Fungsi untuk kembali ke halaman sebelumnya
