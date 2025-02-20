@@ -152,7 +152,7 @@ export default function CartProducts() {
                           alt={item.title}
                           className="w-full h-full my-5 lg:w-32 lg:h-32 bg-white object-cover rounded"
                         />
-                        <div className="text-start text-white flex-1">
+                        <div className="text-start text-white flex-1 w-full">
                           <h2 className="text-sm lg:text-xl font-semibold">
                             {item.title}
                           </h2>
